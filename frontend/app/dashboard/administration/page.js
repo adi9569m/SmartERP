@@ -1,0 +1,3 @@
+"use client";
+import {useEffect,useState} from "react";import {api} from "../../../lib/api";import DataTable from "../../../components/DataTable";
+export default function Administration(){const [x,setX]=useState([]);useEffect(()=>{api("/audit-logs").then(d=>setX(d.items))},[]);return <><h1 className="mb-1 text-2xl font-bold">Administration</h1><p className="mb-5 text-sm text-slate-500">Audit trail of company activity.</p><div className="card"><DataTable data={x} columns={[{accessorKey:"created_at",header:"Time"},{accessorKey:"user_id",header:"User"},{accessorKey:"action",header:"Action"},{accessorKey:"entity_type",header:"Entity"},{accessorKey:"entity_id",header:"Record"},{accessorKey:"details",header:"Details"}]}/></div></>}
