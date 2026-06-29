@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 
@@ -35,9 +35,9 @@ export function Modal({ title, open, onClose, children }) {
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   }
-  return <div role="dialog" aria-modal="true" aria-label={title} className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/40 p-4" onMouseDown={onClose} onKeyDown={modalKey}>
-    <div ref={panelRef} className="card max-h-[90vh] w-full max-w-2xl overflow-auto p-6" onMouseDown={(e) => e.stopPropagation()}>
-      <div className="mb-5 flex items-center justify-between"><h2 className="text-xl font-bold">{title}</h2><button onClick={onClose} className="text-2xl text-slate-400">×</button></div>
+  return <div role="dialog" aria-modal="true" aria-label={title} className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4 backdrop-blur-sm" onMouseDown={onClose} onKeyDown={modalKey}>
+    <div ref={panelRef} className="card max-h-[90vh] w-full max-w-2xl overflow-auto p-6 shadow-2xl md:p-7" onMouseDown={(e) => e.stopPropagation()}>
+      <div className="mb-6 flex items-center justify-between border-b border-slate-100 pb-4"><h2 className="text-xl font-bold tracking-tight">{title}</h2><button onClick={onClose} className="text-2xl text-slate-400">Ã—</button></div>
       {children}
     </div>
   </div>;
